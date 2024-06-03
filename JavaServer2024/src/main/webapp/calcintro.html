@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>계산기 예제</title>
+<script>
+ function calcjs(){
+	var n1 = parseInt(document.getElementById("n1").value);
+	var n2 = parseInt(document.getElementById("n2").value);
+	var op = document.getElementById("op").value;
+	var ans = document.getElementById("ans");
+
+	var result = 0;
+	switch(op){
+		case "+": result = n1 + n2; break;
+		case "-": result = n1 - n2; break;
+		case "*": result = n1 * n2; break;
+		case "/": result = n1 / n2; break;
+		
+	}
+	console.log(result)
+	ans.value = result;
+}
+</script>
+</head>
+<body>
+<h1>계산기 통합버젼 </h1>
+<h2>javascript버젼</h2>
+
+	<input type="text" id="n1" size="10" />
+	<select id="op" >
+		<option>+</option>
+		<option>-</option>
+		<option>*</option>
+		<option>/</option>
+	</select>
+	<input type="text" id="n2" size="10" >
+
+<h2>Javascript 활용</h2>
+<h3>input type="button" value="실행" onClick="calcjs()"<br></h3>
+<hr>
+<input type="button" value="실행" onClick="calcjs()"/><br>
+<input type="text" id="ans" size="20"/>
+
+<h2>jsp 버젼</h2>
+
+<h2> action="jspcalcu.jsp" </h2><hr>
+<form method="post" action="jspcalcu.jsp">
+	<input type="text" name="n1" size="10" />
+	<select name="op" >
+		<option>+</option>
+		<option>-</option>
+		<option>*</option>
+		<option>/</option>
+	</select>
+	<input type="text" name="n2" size="10" >
+	<input type="submit" value="실행" />
+</form>
+
+<hr>
+<h2>Servlet 버젼</h2>
+<form method="get" action="/JavaServer2024/calcuServlet">
+	<input type="text" name="n1" size="10"/>
+	<select name="op" >
+		<option>+</option>
+		<option>-</option>
+		<option>*</option>
+		<option>/</option>
+	</select>
+	<input type="text" name="n2" size="10" >
+	<input type="submit" value="서브릿호출" />
+</form>
+
+</body>
+</html>
